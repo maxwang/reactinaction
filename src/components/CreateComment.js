@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { render } from "react-dom";
+import { format } from "util";
 
 
 class CreateComment extends Component {
@@ -43,27 +44,22 @@ class CreateComment extends Component {
     }
 
     render() {
-        return React.createElement(
-            'form', 
-            {
-                className: 'createComment',
-                onSubmit: this.handleSubmit
-            },
-            React.createElement('input', {
-                type: 'text',
-                placeholder: 'Your name',
-                value: this.state.user,
-                onChange: this.handleUserChange
-            }),
-            React.createElement('input', {
-                type: 'text',
-                placeholder: 'Thoughts?',
-                onChange: this.handleTextChange
-            }),
-            React.createElement('input', {
-                type: 'submit',
-                value: 'Post'
-            }),
+        return (
+            <form onSubmit={this.handleSubmit} className="createComment">
+                <input 
+                    value={this.state.user}
+                    onChange={this.handleUserChange}
+                    placeholder="Your name"
+                    type="text"
+                 />
+                 <input
+                    value={this.state.context}
+                    onChange={this.handleTextChange}
+                    placeholder="Thoughts?"
+                    type="text"
+                  />
+                  <button type="submit">Post</button>
+            </form>
         );
     }
 }

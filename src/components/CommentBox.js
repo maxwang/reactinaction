@@ -23,22 +23,20 @@ class CommentBox extends Component {
     }
 
     render() {
-        return React.createElement(
-            'div',
-            {
-                className: 'commentBox'
-            },
-           this.state.comments.map(function(comment) {
-                return React.createElement(Comment, {
-                    key: comment.id,
-                    id: comment.id,
-                    content: comment.content,
-                    user: comment.user
-                });
-           }),
-           React.createElement(CreateComment, {
-               onCommentSubmit: this.handleCommentSubmit
-           })
+        return (
+            <div className="commentBox">
+                {this.state.comments.map(function(comment) {
+                        return ( <Comment 
+                            key={comment.id}
+                            id={comment.id}
+                            content={comment.content}
+                            user={comment.user}
+                        />
+                    );
+                })}
+                <CreateComment onCommentSubmit={this.handleCommentSubmit} />
+            </div>
+            
         );
     }
 }

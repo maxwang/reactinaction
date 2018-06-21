@@ -5,25 +5,12 @@ import PropTypes from "prop-types";
 class Comment extends Component {
     render() {
       //console.log("yo");
-      return React.createElement(
-        "div",
-        {
-          className: "comment"
-        },
-        React.createElement(
-          "h2",
-          {
-            className: "commentAuthor"
-          },
-          this.props.user,
-          React.createElement(
-            "span",
-            {
-              className: "commentContent"
-            },
-            this.props.content
-          )
-        )
+      return(
+        <div className="comment">
+          <h2 className="commentAuthor">{this.props.user}&nbsp;
+            <span className="commentContent">{this.props.content}</span>
+          </h2>
+        </div>
       );
     }
   }
